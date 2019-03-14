@@ -68,7 +68,7 @@ else{
     </li>
 </ul>
     <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo base_url('Restaurant/restaurant_search'); ?>">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
+      <input class="form-control mr-sm-2" type="search" name="search" placeholder="name,area or city">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

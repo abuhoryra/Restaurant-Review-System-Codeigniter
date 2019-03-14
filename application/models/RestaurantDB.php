@@ -59,6 +59,8 @@ class RestaurantDB extends CI_Model {
                     ->from('addrestaurant r')
                     ->join('restaurantimage p', 'p.username=r.username')
                     ->like('r.resname',$search)
+                    ->or_like('r.rescity',$search)
+                    ->or_like('r.resadd',$search)
                     ->get();
   }
 

@@ -45,19 +45,10 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
        <ul class="navbar-nav ml-auto">
-       <li class="d1 nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        <?php echo $this->session->userdata('username'); ?>
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href=""> Profile</a>
-        <a class="dropdown-item" href="<?php echo base_url('Welcome/logout'); ?>">Logout</a>
-        
-      </div>
-    </li>
+      
 </ul>
     <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo base_url('Restaurant/restaurant_search'); ?>">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
+      <input class="form-control mr-sm-2" type="search" placeholder="name,area or city" name="search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
