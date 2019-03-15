@@ -61,7 +61,7 @@ else{
         <?php echo $this->session->userdata('username'); ?>
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href=""> Profile</a>
+        <a class="dropdown-item" href="<?php echo base_url('Welcome/show_profile'); ?>"> Profile</a>
         <a class="dropdown-item" href="<?php echo base_url('Welcome/logout'); ?>">Logout</a>
         
       </div>
@@ -202,9 +202,16 @@ else{
        </form>
 
        <?php
-        foreach($comments as $row){?>
+        foreach($comments as $row){
+          ?>
+          <br>
+          <div class="com" style="border: 1px solid #00b33c; padding: 5px 5px; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b33c;">
+          <p style="color: deepskyblue;"><?php echo $row['username'];?></p>
           <p><?php echo $row['comment'];?></p>
-       <?php } ?>
+          </div>
+       <?php 
+     } 
+       ?>
       </div>
      
     </div>
