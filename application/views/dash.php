@@ -69,7 +69,7 @@
    $tim = mysqli_query($conn,$tql);
             while ($tes = mysqli_fetch_array($tim)) {
        ?>
-         <div class="col-md-3">
+         <div class="col-md-3" style="margin-top: 15px !important;">
        <div class="card" style="">
       <img class="card-img-top" style="height: 250px;" src="<?php echo base_url();?>upload/<?php echo $row->name;?>">
       <div class="card-body">
@@ -193,6 +193,8 @@
   
 
 </div>
-    <?php echo $this->pagination->create_links(); ?> 
+<div class="pagination" style="margin-left: 45%; margin-top: 1%;">
+ <?php echo $this->pagination->create_links(); ?>
+  </div>
 </body>
 </html>

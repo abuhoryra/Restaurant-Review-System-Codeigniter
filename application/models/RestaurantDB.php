@@ -64,6 +64,7 @@ class RestaurantDB extends CI_Model {
                     ->or_like('r.rescity',$search)
                     ->or_like('r.resadd',$search)
                     ->get();
+                  
   }
 
 
