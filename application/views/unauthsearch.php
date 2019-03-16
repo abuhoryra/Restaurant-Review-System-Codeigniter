@@ -35,53 +35,53 @@
   </style>
 </head>
 <body>
+ 
    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-  <a class="navbar-brand" href="<?php echo base_url(); ?>">Foddy</a>
+  <a class="navbar-brand" href="<?php echo base_url('Restaurant/show_restaurant2'); ?>">Foddy</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('Welcome/login'); ?>">Login</a>
-      </li>
-     
-    </ul>
-    <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo base_url('Restaurant/unauth_restaurant_search'); ?>">
+
+       <ul class="navbar-nav ml-auto">
+      
+</ul>
+    <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo base_url('Restaurant/restaurant_search'); ?>">
       <input class="form-control mr-sm-2" type="search" placeholder="name,area or city" name="search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
 <div class="container-fluid" style="margin-top: 1%;">
+
   <div class="card-deck" id="cad">
+
 
     <?php
     
-     foreach ($rdata->result() as $row) {
+     foreach ($udata->result() as $row) { 
+    
       $conn = mysqli_connect("localhost","root","","restaurant")
        or die("Could Not Connect With Database");
         $tql = "select s.id, cast(AVG(rating )as decimal(10,1)) FROM addrating,addrestaurant s  WHERE s.id=resid AND s.id='$row->id' " ;
    $tim = mysqli_query($conn,$tql);
             while ($tes = mysqli_fetch_array($tim)) {
        ?>
-         <div class="col-md-3" style="margin-top: 15px !important;">
+         <div class="col-md-3">
        <div class="card" style="">
       <img class="card-img-top" style="height: 250px;" src="<?php echo base_url();?>upload/<?php echo $row->name;?>">
       <div class="card-body">
       <h5 class="card-title"><?php echo $row->resname; ?><span style="float: right;"><?php echo $tes['cast(AVG(rating )as decimal(10,1))']; ?> <i style="color: salmon;" class='fas fa-star'></i></span></h5>
+       
       <p class="card-text"><?php echo $row->restag; ?></p>
       <!-- Button trigger modal -->
-<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $row->id; ?>">
   Details
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -99,19 +99,18 @@
     </div>
   </div>
 </div>
-   
 
 <!-- Button trigger modal -->
-<button type="button" class="btn2 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
-  Add rating
+<button type="button" class="btn2 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1<?php echo $row->id; ?>">
+  Add rating 
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter1<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $row->resname; ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -158,43 +157,31 @@
   </div>
 </div>
 
-<a class="btn3 btn btn-primary" href="<?php echo base_url('Welcome/login'); ?>">Comments</a>
-<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
-  Items
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter5<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $row->resname; ?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p style="color: deepskyblue; font-size:18px;"><?php echo $row->items; ?></p>
-      </div>
-     
-    </div>
-  </div>
-</div>
+<a href="<?php echo base_url('Welcome/login'); ?>"  class="btn3 btn btn-primary">Comment
+</a>
+
+
 
   </div>
   </div>
-  </div>
+  </div> 
+
+<!-- Button trigger modal -->
+
        <?php
-     }
+     
+}
 }
   ?>
 
-</div>
-  
 
 </div>
-<div class="pagination" style="margin-left: 45%; margin-top: 1%;">
- <?php echo $this->pagination->create_links(); ?>
-  </div>
+</div>
+
+
+
+</div>
+    
 </body>
 </html>

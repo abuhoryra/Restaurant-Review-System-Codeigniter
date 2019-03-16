@@ -173,6 +173,13 @@ class Restaurant extends CI_Controller {
         $this->load->view('search', $data);
     }
 
+    public function unauth_restaurant_search(){
+        $this->load->model('RestaurantDB');
+        $restaurents=$this->RestaurantDB->search_restaurant();
+        $data['udata'] = $restaurents;
+        $this->load->view('unauthsearch', $data);
+    }
+
     public function my_restaurant(){
       $this->load->model('RestaurantDB');
       $data['sdata'] = $this->RestaurantDB->fetch_my_restaurant();
