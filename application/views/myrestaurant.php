@@ -89,13 +89,18 @@ else{
 }
 ?>
    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-  <a class="navbar-brand" href="">Foddy</a>
+  <a class="navbar-brand" href="<?php echo base_url('Welcome/admin_dash'); ?>">Foddy</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url('Restaurant/my_restaurant'); ?>">My Restaurant</a>
+      </li>
+     
+    </ul>
        <ul class="navbar-nav ml-auto">
        <li class="d1 nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -108,10 +113,6 @@ else{
       </div>
     </li>
 </ul>
-    <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo base_url('Restaurant/restaurant_search'); ?>">
-      <input class="form-control mr-sm-2" type="search" name="search" placeholder="name,area or city">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 <div class="container-fluid" style="margin-top: 1%;">
@@ -123,20 +124,61 @@ else{
    <div class="col-md-4">
 
     <div class="div1">
-     <h5 style="text-align: center;">My Info</h5>
+     <h5 style="text-align: center;">My Restaurant Info
+
+
+
+<!-- Button trigger modal -->
+<button style="float: right;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Delete My Restaurant
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Are You Sure</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>   <a class="btn btn-danger" href="<?php echo base_url('Restaurant/restaurant_delete/'.$row->id); ?>">Delete</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </h5>
      <br>
      <?php
       foreach($idata->result() as $key){
       ?>
-      <img class="img-responsive" style="height: 150px; width: 150px;" src="<?php echo base_url();?>profileimage/<?php echo $key->name;?>">
+      <img class="img-responsive" style="height: 150px; width: 150px;" src="<?php echo base_url();?>upload/<?php echo $key->name;?>">
       <?php
     }
      ?>
      
-     <p class="p1">First Name : <?php echo $row->firstname; ?></p>
-     <p class="p1">Last name : <?php echo $row->lastname; ?></p>
-     <p class="p1">Useranme : <?php echo $row->username; ?></p>
-     <p class="p1">Email Address : <?php echo $row->email; ?></p>
+     <p class="p1">Restaurant Name : <?php echo $row->resname; ?></p>
+     <p class="p1">Restaurant Address : <?php echo $row->resadd; ?></p>
+     <p class="p1">Restaurant City : <?php echo $row->rescity; ?></p>
+     <p class="p1">Restaurant Tag Line : <?php echo $row->restag; ?></p>
+     <p class="p1">Email Address : <?php echo $row->items; ?></p>
     </div>
    </div>
         <div class="col-md-4">
@@ -146,28 +188,26 @@ else{
               <h5 style="text-align: center;">Edit My Info</h5>
               <br>
 
-              <form method="post" action="<?php echo base_url('Welcome/update_user_info'); ?>">
+              <form method="post" action="<?php echo base_url(''); ?>">
 
-              <div class="form-group">
-
-    <input type="text" class="form-control" id="exampleInputPassword" placeholder="First Name" name="firstname" value="<?php echo $row->firstname; ?>">
-  </div>
-  <div class="form-group">
+          
  
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name" name="lastname" value="<?php echo $row->lastname; ?>">
+  <div class="form-group">
+
+    <input type="text" class="form-control" id="exampleInputPassword2" name="restag" value="<?php echo $row->restag; ?>">
   </div>
   <div class="form-group">
 
-    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Username" name="username" value="<?php echo $row->username; ?>">
-  </div>
-  <div class="form-group">
-
-    <input type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Enter Email" name="email" value="<?php echo $row->email; ?>">
+    <input type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" name="resadd" value="<?php echo $row->resadd; ?>">
     
   </div>
   <div class="form-group" >
   
-    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password" value="<?php echo $row->password; ?>">
+    <input type="text" class="form-control" id="exampleInputPassword4" name="rescity" value="<?php echo $row->rescity; ?>">
+  </div>
+   <div class="form-group" >
+  
+    <input type="text" class="form-control" id="exampleInputPassword4" name="items" value="<?php echo $row->items; ?>">
   </div>
    
   
@@ -183,9 +223,9 @@ else{
    <div class="col-md-4">
      <div class="div3">
        <img src="" id="image" style="display:none;" height="150" width="100">
-    <h5>Update Your Profile Image</h5>
+    <h5>Update Your Restaurant Image</h5>
     <br>
-    <form  method="post" action="<?php echo site_url('Welcome/profile_img_upload');?>" enctype="multipart/form-data">
+    <form  method="post" action="<?php echo site_url('Restaurant/update_restaurant_image');?>" enctype="multipart/form-data">
     <input name="img" onchange="showImage.call(this)" type="file"/>
     <br>
     <br>
@@ -209,6 +249,8 @@ else{
     
      </div>
    </div>
+
+
    
    <?php
  }

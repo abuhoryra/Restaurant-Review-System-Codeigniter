@@ -159,6 +159,27 @@
 </div>
 
 <a class="btn3 btn btn-primary" href="<?php echo base_url('Welcome/login'); ?>">Comments</a>
+<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
+  Items
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter5<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $row->resname; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="color: deepskyblue; font-size:18px;"><?php echo $row->items; ?></p>
+      </div>
+     
+    </div>
+  </div>
+</div>
 
   </div>
   </div>
@@ -172,6 +193,6 @@
   
 
 </div>
-    
+    <?php echo $this->pagination->create_links(); ?> 
 </body>
 </html>

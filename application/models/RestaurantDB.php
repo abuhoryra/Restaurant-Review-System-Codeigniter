@@ -9,15 +9,17 @@ class RestaurantDB extends CI_Model {
            'resname' => $this->input->post('resname'),
            'resadd' => $this->input->post('resadd'),
            'rescity' => $this->input->post('rescity'),
-           'restag' => $this->input->post('restag')
+           'restag' => $this->input->post('restag'),
+           'items' => implode(",", $this->input->post('items'))
     );
     $this->db->insert('addrestaurant',$data);
   }
-  public function fetch_restaurant(){
+  public function fetch_restaurant($limit,$start){
     $this->db->select('r.*, p.name')
                  ->from('addrestaurant r')
                  ->join('restaurantimage p', 'p.username=r.username')
-                 ->order_by('id', 'DESC');
+                 ->order_by('id', 'DESC')
+                 ->limit($limit,$start);
     $result = $this->db->get();
     return $result;
 
@@ -63,6 +65,28 @@ class RestaurantDB extends CI_Model {
                     ->or_like('r.resadd',$search)
                     ->get();
   }
+
+
+  public function fetch_my_restaurant(){
+    return $this->db->select('*')
+                    ->from('addrestaurant')
+                    ->where('username',$this->session->userdata('username'))
+                    ->get();
+  }
+
+  public function fetch_restaurant_image(){
+
+        return $this->db->select('*')
+                        ->from('restaurantimage')
+                        ->where('username', $this->session->userdata('username'))
+                        ->get();
+    }
+
+
+    public function delete_restaurant($rid){
+       $this->db->delete('addrestaurant', array('id' => $rid));
+       $this->db->delete('restaurantimage', array('username' => $this->session->userdata('username')));
+    }
 
   
 }

@@ -37,7 +37,7 @@ else{
 }
 ?>
   <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-  <a class="navbar-brand" href="<?php echo base_url(); ?>">Foddy</a>
+  <a class="navbar-brand" href="<?php echo base_url('Welcome/admin_dash'); ?>">Foddy</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -45,7 +45,7 @@ else{
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('Restaurant/my_restaurant'); ?>">My Restaurant</a>
       </li>
      
     </ul>
@@ -65,7 +65,12 @@ else{
 </nav>
 
 <div class="c11 container">
+     <div class="alert alert-danger" role="alert">
+ If you dont't add your restaurant image, your restaurant don't show in user view!
+</div>
+<br>
       <div class="row">
+     
           <div class="col-md-6" style="border-right: 1px solid deepskyblue; margin: 0 auto;">
               
 
@@ -90,6 +95,11 @@ else{
   <div class="form-group">
 
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Restaurant Tag Line" name="restag">
+    
+  </div>
+    <div class="form-group">
+
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Restaurant Items(use , for multiple items add)" name="items[]">
     
   </div>
 

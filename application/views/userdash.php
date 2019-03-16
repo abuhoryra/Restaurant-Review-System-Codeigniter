@@ -88,7 +88,7 @@ else{
    $tim = mysqli_query($conn,$tql);
             while ($tes = mysqli_fetch_array($tim)) {
        ?>
-         <div class="col-md-3">
+         <div class="col-md-3" style="margin-top: 5px !important;">
        <div class="card" style="">
       <img class="card-img-top" style="height: 250px;" src="<?php echo base_url();?>upload/<?php echo $row->name;?>">
       <div class="card-body">
@@ -202,12 +202,12 @@ else{
        </form>
 
        <?php
-        foreach($comments as $row){
+        foreach($comments as $key){
           ?>
           <br>
           <div class="com" style="border: 1px solid #00b33c; padding: 5px 5px; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b33c;">
-          <p style="color: deepskyblue;"><?php echo $row['username'];?></p>
-          <p><?php echo $row['comment'];?></p>
+          <p style="color: deepskyblue;"><?php echo $key['username'];?></p>
+          <p><?php echo $key['comment'];?></p>
           </div>
        <?php 
      } 
@@ -217,6 +217,30 @@ else{
     </div>
   </div>
 </div>
+
+<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
+  Items
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter5<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $row->resname; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="color: deepskyblue; font-size:18px;"><?php echo $row->items; ?></p>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
 
   </div>
   </div>
@@ -231,6 +255,8 @@ else{
 
 
 </div>
-    
+<div class="pagination" style="margin-left: 45%; margin-top: 1%;">
+ <?php echo $this->pagination->create_links(); ?>
+  </div>  
 </body>
 </html>
