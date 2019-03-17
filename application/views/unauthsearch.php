@@ -17,18 +17,26 @@
     .a1:hover {
             color: limegreen;
         }
-    @media only screen and (min-width: 375px) and (max-width: 398px){
-           .btn1{
+    @media only screen and (min-width: 320px) and (max-width: 467px){
+            .btn1{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn2{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn3{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
+           }
+           .btn4{
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-top: 2px;
            }
     }
 
@@ -160,6 +168,27 @@
 
 <a href="<?php echo base_url('Welcome/login'); ?>"  class="btn3 btn btn-primary">Comment
 </a>
+<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
+  Items
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter5<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $row->resname; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="color: deepskyblue; font-size:18px;"><?php echo $row->items; ?></p>
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 
 

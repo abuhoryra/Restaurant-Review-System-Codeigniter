@@ -18,18 +18,26 @@
             color: limegreen;
         }
 
-    @media only screen and (min-width: 375px) and (max-width: 398px){
+    @media only screen and (min-width: 320px) and (max-width: 467px){
            .btn1{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn2{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn3{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
+           }
+           .btn4{
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-top: 2px;
            }
     }
   </style>
@@ -218,7 +226,7 @@ else{
   </div>
 </div>
 
-<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
+<button type="button" class="btn4 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
   Items
 </button>
 

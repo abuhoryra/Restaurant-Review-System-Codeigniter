@@ -89,5 +89,17 @@ class RestaurantDB extends CI_Model {
        $this->db->delete('restaurantimage', array('username' => $this->session->userdata('username')));
     }
 
+
+    public function update_restaurant_data(){
+        $data = array( 
+           'resadd' => $this->input->post('resadd'),
+           'rescity' => $this->input->post('rescity'),
+           'restag' => $this->input->post('restag'),
+           'items' => $this->input->post('items')
+        );
+        $this->db->where('username', $this->session->userdata('username'));
+        $this->db->update('addrestaurant', $data);
+      }
+
   
 }

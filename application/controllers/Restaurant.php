@@ -247,5 +247,11 @@ class Restaurant extends CI_Controller {
       redirect('Restaurant/my_restaurant');
     }
 
+    public function restaurant_data_update(){
+      $this->load->model('RestaurantDB');
+      $this->RestaurantDB->update_restaurant_data();
+      redirect('Restaurant/my_restaurant');
+    }
+
     	
 }

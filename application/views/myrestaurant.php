@@ -18,18 +18,26 @@
             color: limegreen;
         }
 
-    @media only screen and (min-width: 375px) and (max-width: 398px){
-           .btn1{
+    @media only screen and (min-width: 320px) and (max-width: 467px){
+          .btn1{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn2{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn3{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
+           }
+           .btn4{
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-top: 2px;
            }
     }
 
@@ -188,37 +196,39 @@ else{
               <h5 style="text-align: center;">Edit My Info</h5>
               <br>
 
-              <form method="post" action="<?php echo base_url(''); ?>">
+              <form method="post" action="<?php echo base_url('Restaurant/restaurant_data_update'); ?>">
 
           
  
+  
   <div class="form-group">
 
-    <input type="text" class="form-control" id="exampleInputPassword2" name="restag" value="<?php echo $row->restag; ?>">
-  </div>
-  <div class="form-group">
-
-    <input type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" name="resadd" value="<?php echo $row->resadd; ?>">
+    <input type="text" class="form-control"  name="resadd" value="<?php echo $row->resadd; ?>">
     
   </div>
   <div class="form-group" >
   
-    <input type="text" class="form-control" id="exampleInputPassword4" name="rescity" value="<?php echo $row->rescity; ?>">
+    <input type="text" class="form-control" name="rescity" value="<?php echo $row->rescity; ?>">
+  </div>
+  <div class="form-group">
+
+    <input type="text" class="form-control" name="restag" value="<?php echo $row->restag; ?>">
   </div>
    <div class="form-group" >
   
-    <input type="text" class="form-control" id="exampleInputPassword4" name="items" value="<?php echo $row->items; ?>">
+    <input type="text" class="form-control" name="items" value="<?php echo $row->items; ?>">
   </div>
    
   
   <div class="b1" style="text-align:center;">
-   <button type="submit" class="btn btn-primary">Signup</button>
+   <button type="submit" class="btn btn-primary">Update</button>
    </div>
-  </div>
+
   
   
 
 </form>
+  </div>
           </div>
    <div class="col-md-4">
      <div class="div3">

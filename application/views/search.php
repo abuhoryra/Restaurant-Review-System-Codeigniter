@@ -17,18 +17,26 @@
     .a1:hover {
             color: limegreen;
         }
-    @media only screen and (min-width: 375px) and (max-width: 398px){
-           .btn1{
+    @media only screen and (min-width: 320px) and (max-width: 467px){
+            .btn1{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn2{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
            }
            .btn3{
             padding: 5px 10px;
             font-size: 16px;
+            margin-top: 2px;
+           }
+           .btn4{
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-top: 2px;
            }
     }
 
@@ -181,9 +189,41 @@
        </form>
 
        <?php
-        foreach($comments as $row){?>
-          <p><?php echo $row['comment'];?></p>
-       <?php } ?>
+        foreach($comments as $key){
+          ?>
+          <br>
+          <div class="com" style="border: 1px solid #00b33c; padding: 5px 5px; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b33c;">
+          <p style="color: deepskyblue;"><?php echo $key['username'];?></p>
+          <p><?php echo $key['comment'];?></p>
+          </div>
+       
+       <?php 
+
+     } 
+
+       ?>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5<?php echo $row->id; ?>">
+  Items
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter5<?php echo $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $row->resname; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="color: deepskyblue; font-size:18px;"><?php echo $row->items; ?></p>
       </div>
      
     </div>
