@@ -23,7 +23,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     .form-control:focus {
   border-color: deepskyblue;
   box-shadow: none;
-}
+    }
+     .im1{
+      text-align: center;
+    }
+    .img-responsive{
+      height: 120px;
+      color: deepskyblue;
+    }
+
+
         @media only screen and (max-width:767px){
             .s2{
                 display: none;
@@ -58,21 +67,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
           <div class="col-md-5" style="margin : 0 auto; border: 1px solid deepskyblue; padding: 30px 30px;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px deepskyblue;">
              
-
+          <div class="im1">
+          <img class="img-responsive" src="<?php echo base_url(); ?>images/login2.png">
+           <h5>Login</h5>
               <form method="post" action="<?php echo base_url('Welcome/user_login'); ?>">
               
-            
+
+
+<h4 class="text-danger">
+  <?php
+     echo   $this->session->flashdata('failed');
+  ?>
+
+</h4>'; 
+  
+
+
+    
+              
+          
       
   <div class="form-group">
 
     <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Username" name="username">
   </div>
+    <?php
+                       echo form_error('username','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
   
   <div class="form-group" >
   
     <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
   </div>
-   
+
+       <?php
+                       echo form_error('password','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
+  
   
   <div class="b1" style="text-align:center;">
    <button type="submit" class="btn btn-primary">Login</button>
@@ -87,6 +124,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
      
+     <script type="text/javascript">
+  $(document).ready(function(){
+  $("button").click(function(){
+    $("#al").remove();
+  });
+});
+</script>
    
    
 </body>

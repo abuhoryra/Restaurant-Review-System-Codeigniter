@@ -172,7 +172,7 @@ else{
    
   
   <div class="b1" style="text-align:center;">
-   <button type="submit" class="btn btn-primary">Signup</button>
+   <button type="submit" class="btn btn-primary">Edit</button>
    </div>
   </div>
   

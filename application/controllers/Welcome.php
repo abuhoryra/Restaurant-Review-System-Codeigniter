@@ -27,13 +27,32 @@ class Welcome extends CI_Controller {
 	}
 
 	public function user_data_insert(){
-		$this->load->model('Account');
-		$this->Account->save_user_data();
-		redirect('Welcome/login');
+        $this->form_validation->set_rules('firstname','Firstname','required');
+        $this->form_validation->set_rules('lastname','Lastname','required');
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('password','Password','required');
+        $this->form_validation->set_rules('level','Level','required');
+        if ($this->form_validation->run() == FALSE){
+            
+            $this->load->view('signup');
+        }
+        else{
+            $this->load->model('Account');
+            $this->Account->save_user_data();
+            redirect('Welcome/login');
+        }
+
 	}
 	
 	public function user_login(){
-        
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('password','Password','required');
+         if ($this->form_validation->run() == FALSE){
+            
+            $this->load->view('login');
+        }
+        else{
         $username = $this->input->post('username',true);
         $password = $this->input->post('password',true);
         $this->load->model('Account');
@@ -52,8 +71,10 @@ class Welcome extends CI_Controller {
             }
         }
         else{
-            echo "Wrong";
+            $this->session->set_flashdata('failed', 'Invalid Username Or Password');
+            redirect('Welcome/login');
         }
+    }
     }
 
     public function logout(){
@@ -109,6 +130,16 @@ class Welcome extends CI_Controller {
             );
            
             
+         $this->load->model('Account');
+            $udata = $this->Account->fetch_profile_image();
+
+            foreach ($udata->result() as $key) {
+                 unlink('./profileimage/'.$key->name);
+
+            }
+
+           
+
              $this->db->where('username', $this->session->userdata('username'));
              $this->db->where('level', $this->session->userdata('level'));
              $this->db->update('profileimage', $data);
@@ -128,4 +159,6 @@ class Welcome extends CI_Controller {
           return false;
         }
     }
+
+
 }

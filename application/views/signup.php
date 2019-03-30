@@ -23,7 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     .form-control:focus {
   border-color: deepskyblue;
   box-shadow: none;
-}
+    }
+
+    .im1{
+      text-align: center;
+    }
+    .img-responsive{
+      height: 120px;
+      color: deepskyblue;
+    }
         @media only screen and (max-width:767px){
             .s2{
                 display: none;
@@ -58,31 +66,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
           <div class="col-md-5" style="margin : 0 auto; border: 1px solid deepskyblue; padding: 30px 30px;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px deepskyblue;">
               
+              <div class="im1">
+          <img class="img-responsive" src="<?php echo base_url(); ?>images/signup2.png">
+           <h5>Sign Up</h5>
+            </div> 
 
               <form method="post" action="<?php echo base_url('Welcome/user_data_insert'); ?>">
-              
+                  
+                   
             
               <div class="form-group">
 
     <input type="text" class="form-control" id="exampleInputPassword" placeholder="First Name" name="firstname">
   </div>
+  <?php
+                       echo form_error('firstname','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
   <div class="form-group">
  
     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name" name="lastname">
   </div>
+  <?php
+                       echo form_error('firstname','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
   <div class="form-group">
 
     <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Username" name="username">
   </div>
+  <?php
+                       echo form_error('username','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
   <div class="form-group">
 
     <input type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Enter Email" name="email">
     
   </div>
+  <?php
+                       echo form_error('email','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
   <div class="form-group" >
   
     <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
   </div>
+  <?php
+                       echo form_error('password','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                          </button>',
+                          '</div>'); 
+                    ?>
     <div class="form-group">
   <label for="sel1">Select Type:</label>
   <select class="form-control" id="sel1" name="level">
@@ -91,10 +134,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
   </select>
 </div>
-  
+
   <div class="b1" style="text-align:center;">
    <button type="submit" class="btn btn-primary">Signup</button>
   </div>
+ 
   <label style="float: right;">Already Signup?<a style="" href="<?php echo base_url('Welcome/login'); ?>"> Login</a></label>
   
 
@@ -103,7 +147,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 
-     
+     <script type="text/javascript">
+  $(document).ready(function(){
+  $("button").click(function(){
+    $("#al").remove();
+  });
+});
+</script>
    
    
 </body>

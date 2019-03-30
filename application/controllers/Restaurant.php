@@ -128,6 +128,7 @@ class Restaurant extends CI_Controller {
               echo "You Already Upload Your Image";
             }
             else {
+            
              $this->db->insert('restaurantimage',$data);
              redirect('Welcome/admin_dash');
             }
@@ -220,7 +221,12 @@ class Restaurant extends CI_Controller {
               
               'name' => $this->upload->file_name
             );
-           
+             $this->load->model('RestaurantDB');
+              $rdata = $this->RestaurantDB->fetch_restaurant_image();
+              foreach ($rdata->result() as $key) {
+                 unlink('./upload/'.$key->name);
+
+            }
             
              $this->db->where('username', $this->session->userdata('username'));
              $this->db->update('restaurantimage', $data);
