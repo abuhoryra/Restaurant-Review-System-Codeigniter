@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      echo   $this->session->flashdata('failed');
   ?>
 
-</h4>'; 
+</h4>
   
 
 
@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Username" name="username">
   </div>
-    <?php
+                    <?php
                        echo form_error('username','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                           </button>',
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
   </div>
 
-       <?php
+                    <?php
                        echo form_error('password','<div id="al" class="alert alert-danger">     <button type="button" class="close" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                           </button>',

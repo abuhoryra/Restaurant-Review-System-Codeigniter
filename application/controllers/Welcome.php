@@ -53,20 +53,23 @@ class Welcome extends CI_Controller {
             $this->load->view('login');
         }
         else{
-        $username = $this->input->post('username',true);
-        $password = $this->input->post('password',true);
+        $username = $this->input->post('username');
+       // $password = $this->input->post('password',true);
         $this->load->model('Account');
-        $result=$this->Account->login($username,$password);
-        $sdata=array();
-        if($result){
-            $sdata['id']=$result['id'];
-            $sdata['username']=$result['username'];
-            $sdata['level']=$result['level'];
+       // $result=$this->Account->login($username,$password);
+        //$sdata=array();
+         if($this->Account->login()){
+            
+            $user = $this->Account->getMyInfo($username);
+
+            $sdata['id']=$user['id'];
+            $sdata['username']=$user['username'];
+            $sdata['level']=$user['level'];
             $this->session->set_userdata($sdata);
-            if($this->session->userdata('username') && $this->session->userdata('level')==1){
+            if($user['level']==1){
                 redirect('Restaurant/show_restaurant2');
             }
-           if($this->session->userdata('username') && $this->session->userdata('level')==2){
+           elseif($user['level']==2){
                 redirect('Welcome/admin_dash');
             }
         }

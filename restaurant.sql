@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2019 at 08:14 PM
+-- Generation Time: Mar 31, 2019 at 07:50 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -64,7 +64,8 @@ INSERT INTO `addrating` (`id`, `resid`, `rating`) VALUES
 (60, 13, 1),
 (61, 17, 5),
 (62, 16, 5),
-(63, 16, 5);
+(63, 16, 5),
+(64, 14, 5);
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,9 @@ INSERT INTO `profileimage` (`id`, `username`, `level`, `name`) VALUES
 (16, 'kader', 2, NULL),
 (17, 'hamid', 2, NULL),
 (18, 'zashim', 2, 'd6ab7b803879adfd3f482ae07b242c03.jpg'),
-(19, 'ashraf', 1, '40a6681ca4fab94bf9c1e00d7a6f02ef.jpg');
+(19, 'ashraf', 1, '40a6681ca4fab94bf9c1e00d7a6f02ef.jpg'),
+(20, 'naqib', 1, NULL),
+(21, 'farid', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -199,7 +202,7 @@ CREATE TABLE `signup` (
   `lastname` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `level` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -219,7 +222,8 @@ INSERT INTO `signup` (`id`, `firstname`, `lastname`, `username`, `email`, `passw
 (14, 'Kader', 'Hamid', 'kader', 'kader@gmail.com', 'kader', 2),
 (15, 'Hamid', 'Uddin', 'hamid', 'hamid@gmail.com', 'hamid', 2),
 (16, 'Zashim', 'Sheikh', 'zashim', 'zashim@gmail.com', 'zashim', 2),
-(17, 'Ashrad', 'Uddin', 'ashraf', 'ashraf@gmail.com', 'ashraf', 1);
+(17, 'Ashrad', 'Uddin', 'ashraf', 'ashraf@gmail.com', 'ashraf', 1),
+(19, 'Farid', 'Ahmed', 'farid', 'farid@gmail.com', '$2y$10$AavlJQjlzklo0juIGbE4j.9xC9QkKAbwqOB3I/B9BuV3qK.wG70Z2', 1);
 
 --
 -- Indexes for dumped tables
@@ -276,7 +280,7 @@ ALTER TABLE `signup`
 -- AUTO_INCREMENT for table `addrating`
 --
 ALTER TABLE `addrating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `addrestaurant`
@@ -294,7 +298,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `profileimage`
 --
 ALTER TABLE `profileimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `restaurantimage`
@@ -306,7 +310,7 @@ ALTER TABLE `restaurantimage`
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

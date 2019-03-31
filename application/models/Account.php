@@ -11,7 +11,7 @@ class Account extends CI_Model {
            'lastname' => $this->input->post('lastname'),
            'username' => $this->input->post('username'),
            'email' => $this->input->post('email'),
-           'password' => $this->input->post('password'),
+           'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
            'level' => $this->input->post('level')   
         );
         $pdata = array(
@@ -22,15 +22,28 @@ class Account extends CI_Model {
         $this->db->insert('signup',$data);
         $this->db->insert('profileimage',$pdata);
     	}
+
+     public function getMyInfo($username=null) {
+        if($username==null) {
+            $username = $this->session->userdata('username');
+        }
+        return $this->db->select('*')
+                        ->from('signup')
+                        ->where('username', $username)
+                        ->get()->row_array();
+    }
     	
-    public function login($username,$password){
-        $this->db->select('*');
-        $this->db->from('signup');
-        $this->db->where('username',$username);
-        $this->db->where('password',$password);
-        $query=$this->db->get();
-        $result=$query->row_array();
-        return $result;
+    public function login(){
+         $username = $this->input->post('username');
+         $password = $this->input->post('password');
+         $member = $this->db->select('*')
+                         ->from('signup')
+                         ->where('username',$username)
+                         ->get()->row_array();
+        if(password_verify($password, $member['password'])){
+            return true;
+        }
+        return false;
     }
 
     public function fetch_profile_info(){

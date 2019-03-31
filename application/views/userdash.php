@@ -40,6 +40,32 @@
             margin-top: 2px;
            }
     }
+    @media only screen and (max-width: 768px){
+           .btn3{ 
+            font-size: 16px;
+            margin-top: 4px;
+           }
+           .btn4{
+            font-size: 16px;
+            margin-top: 3px;
+           }
+     }
+     @media only screen and (min-width: 1024px){
+          .btn2{
+            font-size: 16px;
+            margin-top: 4px;
+           }
+          .btn3{
+
+            font-size: 16px;
+            margin-top: 4px;
+           }
+           .btn4{
+            
+            font-size: 16px;
+            margin-top: 4px;
+           }
+     }
   </style>
 </head>
 <body>
@@ -96,7 +122,7 @@ else{
    $tim = mysqli_query($conn,$tql);
             while ($tes = mysqli_fetch_array($tim)) {
        ?>
-         <div class="col-md-3" style="margin-top: 15px !important;">
+         <div class="col-lg-3 col-md-6 col-12" style="margin-top: 15px !important;">
        <div class="card" style="">
       <img class="card-img-top" style="height: 250px;" src="<?php echo base_url();?>upload/<?php echo $row->name;?>">
       <div class="card-body">
