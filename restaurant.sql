@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2019 at 07:50 PM
+-- Generation Time: Apr 01, 2019 at 09:45 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -65,7 +65,9 @@ INSERT INTO `addrating` (`id`, `resid`, `rating`) VALUES
 (61, 17, 5),
 (62, 16, 5),
 (63, 16, 5),
-(64, 14, 5);
+(64, 14, 5),
+(65, 16, 5),
+(66, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -128,7 +130,8 @@ INSERT INTO `comments` (`id`, `resid`, `username`, `comment`) VALUES
 (19, 17, 'pranto', 'good'),
 (20, 13, 'pranto', 'go'),
 (21, 13, 'pranto', 'ji'),
-(22, 14, 'pranto', 'good');
+(22, 14, 'pranto', 'good'),
+(23, 16, 'farid', 'eee');
 
 -- --------------------------------------------------------
 
@@ -280,7 +283,7 @@ ALTER TABLE `signup`
 -- AUTO_INCREMENT for table `addrating`
 --
 ALTER TABLE `addrating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `addrestaurant`
@@ -292,7 +295,7 @@ ALTER TABLE `addrestaurant`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `profileimage`

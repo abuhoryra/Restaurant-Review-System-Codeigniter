@@ -15,11 +15,13 @@ class RestaurantDB extends CI_Model {
     $this->db->insert('addrestaurant',$data);
   }
   public function fetch_restaurant($limit,$start){
+    $this->db->cache_on();
     $this->db->select('r.*, p.name')
                  ->from('addrestaurant r')
                  ->join('restaurantimage p', 'p.username=r.username')
                  ->order_by('id', 'DESC')
                  ->limit($limit,$start);
+    $this->db->cache_off();
     $result = $this->db->get();
     return $result;
 

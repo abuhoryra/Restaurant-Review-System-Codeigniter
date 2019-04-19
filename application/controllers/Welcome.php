@@ -97,6 +97,11 @@ class Welcome extends CI_Controller {
         $this->Account->update_user_data();
         redirect('Welcome/show_profile');
     }
+    public function update_user_pass(){
+        $this->load->model('Account');
+        $this->Account->update_user_password();
+        redirect('Welcome/show_profile');
+    }
 
      public function profile_img_upload(){
         $this->form_validation->set_rules('username','Already Uploaded','callback_img_valid');

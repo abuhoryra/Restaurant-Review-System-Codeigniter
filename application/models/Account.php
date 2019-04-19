@@ -68,9 +68,16 @@ class Account extends CI_Model {
         $data = array(
            'firstname' => $this->input->post('firstname'),
            'lastname' => $this->input->post('lastname'),
-           'username' => $this->input->post('username'),
-           'email' => $this->input->post('email'),
-           'password' => $this->input->post('password') 
+           'email' => $this->input->post('email')
+        );
+        $this->db->where('username', $this->session->userdata('username'));
+        $this->db->where('level', $this->session->userdata('level'));
+        $this->db->update('signup', $data);
+      }
+       public function update_user_password(){
+        $data = array(
+        
+            'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT)
         );
         $this->db->where('username', $this->session->userdata('username'));
         $this->db->where('level', $this->session->userdata('level'));

@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <title>Foddy</title>
+    <title>Foody</title>
     <style>
     .c1{
         margin-top: 8%;
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
       <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-  <a class="navbar-brand" href="<?php echo base_url(); ?>">Foddy</a>
+  <a class="navbar-brand" href="<?php echo base_url(); ?>">Foody</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
