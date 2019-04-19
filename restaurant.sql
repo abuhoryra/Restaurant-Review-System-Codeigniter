@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2019 at 09:45 PM
+-- Generation Time: Apr 19, 2019 at 09:06 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -67,7 +67,59 @@ INSERT INTO `addrating` (`id`, `resid`, `rating`) VALUES
 (63, 16, 5),
 (64, 14, 5),
 (65, 16, 5),
-(66, 16, 1);
+(66, 16, 1),
+(67, 16, 5),
+(68, 15, 5),
+(69, 14, 5),
+(70, 16, 5),
+(71, 15, 5),
+(72, 16, 5),
+(73, 15, 5),
+(74, 16, 5),
+(75, 15, 5),
+(76, 16, 5),
+(77, 16, 5),
+(78, 15, 5),
+(79, 15, 5),
+(80, 16, 5),
+(81, 16, 5),
+(82, 15, 5),
+(83, 15, 5),
+(84, 16, 5),
+(85, 14, 5),
+(86, 16, 5),
+(87, 16, 5),
+(88, 15, 5),
+(89, 15, 5),
+(90, 15, 5),
+(91, 14, 5),
+(92, 14, 5),
+(93, 14, 5),
+(94, 14, 5),
+(95, 14, 5),
+(96, 14, 5),
+(97, 14, 5),
+(98, 14, 5),
+(99, 14, 5),
+(100, 16, 5),
+(101, 15, 5),
+(102, 16, 5),
+(103, 15, 5),
+(104, 16, 5),
+(105, 17, 5),
+(106, 17, 5),
+(107, 16, 5),
+(108, 16, 1),
+(109, 17, 5),
+(110, 16, 5),
+(111, 16, 5),
+(112, 16, 5),
+(113, 16, 5),
+(114, 16, 1),
+(115, 16, 5),
+(116, 16, 5),
+(117, 10, 5),
+(118, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -98,7 +150,8 @@ INSERT INTO `addrestaurant` (`id`, `username`, `resname`, `resadd`, `rescity`, `
 (14, 'rashed', 'Rashed Food', 'Dhanmondi', 'Dhaka', 'Best is Best', 'rice,chicken'),
 (15, 'kader', 'Meal Deal', 'Santinogor', 'Dhaka', 'Khaooooo', 'rice,chicken,vegetable'),
 (16, 'hamid', 'Khana Pina', 'Malibag', 'Dhaka', 'Best food serve always', 'rice,chicken,vegetable,fish'),
-(17, 'zashim', 'Bela Food', 'Bashundhara Residential Area', 'Dhaka', 'Best food ever', 'singara,puri,shamucha');
+(17, 'zashim', 'Bela Food', 'Bashundhara Residential Area', 'Dhaka', 'Best food ever', 'singara,puri,shamucha'),
+(19, 'rabbi', 'Food Ninja', 'Baridhara', 'Dhaka', 'Served Best Food', 'Chicken Fry,Pasta,French Fry');
 
 -- --------------------------------------------------------
 
@@ -131,7 +184,19 @@ INSERT INTO `comments` (`id`, `resid`, `username`, `comment`) VALUES
 (20, 13, 'pranto', 'go'),
 (21, 13, 'pranto', 'ji'),
 (22, 14, 'pranto', 'good'),
-(23, 16, 'farid', 'eee');
+(23, 16, 'farid', 'eee'),
+(24, 16, 'farid', 'wow'),
+(25, 16, 'farid', 'wow'),
+(26, 16, 'farid', 'wow'),
+(27, 16, 'farid', 'wow'),
+(28, 16, 'farid', 'wow'),
+(29, 16, 'farid', 'wow'),
+(30, 16, 'farid', 'wow'),
+(31, 16, 'farid', 'wow'),
+(32, 16, 'farid', 'wow'),
+(33, 16, 'farid', 'wow'),
+(34, 16, 'farid', 'wow'),
+(35, 16, 'farid', 'good food ever');
 
 -- --------------------------------------------------------
 
@@ -164,7 +229,9 @@ INSERT INTO `profileimage` (`id`, `username`, `level`, `name`) VALUES
 (18, 'zashim', 2, 'd6ab7b803879adfd3f482ae07b242c03.jpg'),
 (19, 'ashraf', 1, '40a6681ca4fab94bf9c1e00d7a6f02ef.jpg'),
 (20, 'naqib', 1, NULL),
-(21, 'farid', 1, NULL);
+(21, 'farid', 1, 'b2bef117d3f5c27354bf83d02f70402e.jpg'),
+(22, 'fuad', 2, 'fdf4ab70002866010ba625f51fc3c4c1.jpg'),
+(24, 'Rabbi', 2, 'd8351d464703fd2ad285a4bde3803ab4.jpg');
 
 -- --------------------------------------------------------
 
@@ -191,7 +258,8 @@ INSERT INTO `restaurantimage` (`id`, `username`, `name`) VALUES
 (23, 'rashed', 'd21782df5c125117ba336fd655775c55.jpg'),
 (24, 'kader', '79ec5c4cd0ef735888af703859f44b7d.jpg'),
 (25, 'hamid', '493dd16becc7b1944009d6d0374916ec.jpg'),
-(26, 'zashim', 'e3941d50fe9ea9ba1714276cd5a5aba8.jpg');
+(26, 'zashim', 'e3941d50fe9ea9ba1714276cd5a5aba8.jpg'),
+(27, 'rabbi', '1b6938fb48b0d2ff499d0eaa98505638.jpg');
 
 -- --------------------------------------------------------
 
@@ -226,7 +294,9 @@ INSERT INTO `signup` (`id`, `firstname`, `lastname`, `username`, `email`, `passw
 (15, 'Hamid', 'Uddin', 'hamid', 'hamid@gmail.com', 'hamid', 2),
 (16, 'Zashim', 'Sheikh', 'zashim', 'zashim@gmail.com', 'zashim', 2),
 (17, 'Ashrad', 'Uddin', 'ashraf', 'ashraf@gmail.com', 'ashraf', 1),
-(19, 'Farid', 'Ahmed', 'farid', 'farid@gmail.com', '$2y$10$AavlJQjlzklo0juIGbE4j.9xC9QkKAbwqOB3I/B9BuV3qK.wG70Z2', 1);
+(19, 'Farid', 'Ahmed', 'farid', 'farid@gmail.com', '$2y$10$AavlJQjlzklo0juIGbE4j.9xC9QkKAbwqOB3I/B9BuV3qK.wG70Z2', 1),
+(21, 'Fuad', 'Ahmed', 'fuad', 'fuad@gmail.com', '$2y$10$S9yDTUBPhrvndhLwNcIHfuvTEI00Un9gQCvPU7XiUzJQ5ayfKB44.', 2),
+(23, 'Rabbi', 'Ahmed', 'rabbi', 'rabbi@gmail.com', '$2y$10$rLpJ7A7ypeDc1mTBEViRDudFm8./IrTuyXF2kLbCeQW4WSnNNxPt6', 2);
 
 --
 -- Indexes for dumped tables
@@ -273,7 +343,7 @@ ALTER TABLE `signup`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `password` (`password`);
+  ADD KEY `password` (`password`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -283,37 +353,37 @@ ALTER TABLE `signup`
 -- AUTO_INCREMENT for table `addrating`
 --
 ALTER TABLE `addrating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `addrestaurant`
 --
 ALTER TABLE `addrestaurant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `profileimage`
 --
 ALTER TABLE `profileimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `restaurantimage`
 --
 ALTER TABLE `restaurantimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
